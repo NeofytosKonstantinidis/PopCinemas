@@ -1,0 +1,115 @@
+		<div id="form" class="modal-content signup-content animate" style="padding-bottom: 20px;">
+            
+		<div class="imgcontainer">
+		<h2 class="logtitle" >Sign Up</h2>
+		<ul id="form-messages2" >
+                
+		</ul>
+		<span onclick="closeModls(2)" class="close" title="Close Modal">&times;</span>
+		</div>
+        <div class="container logcontainer">
+		
+		<label for="semail"><b>E-mail</b></label>
+		<input class="logfield" type="email" placeholder="Enter e-mail" id="semail" required>
+		
+		<label for="suname"><b>Username</b></label>
+		<input class="logfield" type="text" placeholder="Enter Username" id="suname" required>
+
+		<label for="spsw"><b>Password</b></label>
+		<input class="logfield" type="password" placeholder="Enter Password" id="spsw" required>
+		
+		<label for="fname"><b>Firstname</b></label>
+		<input class="logfield" type="text" placeholder="Enter Firstname" id="fname" required>
+		
+		<label for="lname"><b>Lastname</b></label>
+		<input class="logfield" type="text" placeholder="Enter Lastname" id="lname" required>
+		
+		<label for="ltelephone"><b>Telephone</b></label>
+		<input class="logfield" type="text" placeholder="Enter Telephone" id="ltelephone" required>
+
+		<p>By creating an account you agree to our <a href="#" style="color:dodgerblue">Terms & Privacy</a>.</p>
+		<div id="signuprecaptcha"></div>
+		<button id="btn-submit" class="seemore" onclick="SignUpForm()" type="submit">Sign Up</button>
+        
+		</div>
+		<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+				async defer>
+		</script>
+		<script type="text/javascript">
+			var signuprecaptcha;
+			var onloadCallback = function() {
+				signuprecaptcha = grecaptcha.render('signuprecaptcha', {
+					'sitekey' : '6LdSG7UaAAAAAOLUEluPRu0Yg2Yuz85GbfVHNhIa'
+				});
+			};
+		</script>
+		<script>
+			function SignUpForm()//Collects data and sends them to signup function of loginchecker.php
+			{
+				const res = grecaptcha.getResponse(signuprecaptcha);
+				grecaptcha.reset(signuprecaptcha);
+				const emailinput = document.getElementById('semail');
+				const userinput= document.getElementById('suname');
+				const passinput= document.getElementById('spsw');
+				const fnameinput= document.getElementById('fname');
+				const lnameinput= document.getElementById('lname');
+				const telephoneinput= document.getElementById('ltelephone');
+				if(emailinput.value && userinput.value && passinput.value && fnameinput.value && lnameinput.value && telephoneinput.value)
+				{
+					if(res)
+					{
+						usrnm = userinput.value;
+						const data ={'type':'signup','email':emailinput.value,'username':usrnm,'password':passinput.value,'fname':fnameinput.value,'lname':lnameinput.value,'telephone':telephoneinput.value};
+						const jsondata = JSON.stringify(data);
+						jQuery.ajax({
+							url: "loginchecker.php",
+							type: "POST",
+							data: jsondata,
+							dataType: "json",
+							success: function (result) {
+								if (result['status'] === 'success') {
+									alert('Account Created Successfully! Please open the link sent to your e-mail to verify the account.');
+									showErrorsList([]);
+									document.getElementById('id02').style.display='none';
+									document.getElementById('id01').style.display='block';
+								} else if (result['status'] === 'error') {
+									showErrorsList(result['fail']);
+								}
+							},
+							error: function () {
+								alert('Something Went Wrong!');
+							}
+						});
+					}
+					else
+					{
+						showErrorsList(['Please Verify Recaptcha to Continue.'])
+					}
+				}else
+				{
+					showErrorsList(['Please fill all fields to continue.'])
+				}
+			}
+			function showErrorsList(er)//shows errors returned from loginchecker.php
+			{
+				console.log(er);
+				const ul = document.getElementById('form-messages2');
+				ul.style.display='block';
+				ul.innerHTML='';
+				for(let i=0;i<er.length;i++)
+				{
+					ul.innerHTML+='<li class="errorli">'+er[i]+'</li>';
+				}
+
+			}
+		</script>
+		<div class="container" style="background-color:#f1f1f1">
+		<div style="text-align: center;">
+		<a class="textbtn" onclick="document.getElementById('id02').style.display='none';document.getElementById('id01').style.display='block'">I already have an account</a>
+		</div>
+		</div>
+        </div>
+        <script>
+
+        </script>
+

@@ -1,0 +1,112 @@
+
+<div  id="form" class="modal-content animate">
+            
+		<div class="imgcontainer">
+		<h2 class="logtitle" >Login</h2>
+		<ul id="form-messages" >
+                
+		</ul>
+		<span onclick="closeModls(1)" class="close" title="Close Modal">&times;</span>
+		</div>
+        <div class="container logcontainer">
+		<label for="uname"><b>Username</b></label>
+		<input class="logfield" type="text" placeholder="Enter Username" name="uname" id="uname" required>
+
+		<label for="psw"><b>Password</b></label>
+		<input class="logfield" type="password" placeholder="Enter Password" id="psw" name="psw" required>
+		<div id="loginrecaptcha"></div>
+		</div>
+		<button class="seemore" onclick="submitForm();" type="submit">Login</button>
+
+		<div class="container" style="background-color:#f1f1f1">
+		<div style="text-align: center;">
+		<a class="textbtn" onclick="document.getElementById('id01').style.display='none';document.getElementById('id02').style.display='block'">Create an Account</a>
+		</div>
+		</div>
+        </div>
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback2&render=explicit"
+		async defer>
+</script>
+<script type="text/javascript">
+        var logincaptcha;
+        var onloadCallback2 = function() {
+            logincaptcha = grecaptcha.render('loginrecaptcha', {
+                'sitekey' : '6LdSG7UaAAAAAOLUEluPRu0Yg2Yuz85GbfVHNhIa'
+            });
+        };
+    </script>
+<script>
+let usrnm;
+function submitForm()//Collects data and sends them to login function of loginchecker.php
+{
+	const res = grecaptcha.getResponse(logincaptcha);
+	grecaptcha.reset(logincaptcha);
+	const userinput= document.getElementById('uname');
+	const passinput= document.getElementById('psw');
+	if(userinput.value && passinput.value)
+	{
+		if(res)
+		{
+			usrnm = userinput.value;
+			const data ={'type':'login','username':usrnm,'password':passinput.value};
+			const jsondata = JSON.stringify(data);
+			jQuery.ajax({
+				url: "loginchecker.php",
+				type: "POST",
+				data: jsondata,
+				dataType: "json",
+				success: function (result) {
+					if (result['status'] === 'success') {
+						document.getElementById('id01').style.display='none';
+						CloseCurtains("here");
+					} else if (result['status'] === 'error') {
+						showErrors(result['fail']);
+
+					}
+				},
+				error: function () {
+					alert('Something Went Wrong!');
+				}
+			});
+		}
+		else
+		{
+			showErrors(['Please Check the ReCaptcha.']);
+		}
+	}
+}
+function sentVerCode()//Calls function to verify code in loginchecker.php
+{
+	if(usrnm)
+	{
+		const data ={'type':'vercode','user':usrnm};
+		const jsondata = JSON.stringify(data);
+		jQuery.ajax({
+			url: "loginchecker.php",
+			type: "POST",
+			data: jsondata,
+			dataType: "json",
+			success: function (result) {
+				if (result['status'] === 'success') {
+					alert('New Verification Link has been Sent');
+				} else if (result['status'] === 'error') {
+					alert('Failed to send the email please try again later');
+				}
+			},
+			error: function () {
+				alert('Something Went Wrong!');
+			}
+		});
+	}
+}
+function showErrors(er)//shows errors returned from loginchecker.php
+{
+	const ul = document.getElementById('form-messages');
+	ul.style.display='block';
+	ul.innerHTML='<li class="errorli">'+er+'</li>'
+}
+            
+
+
+        </script>
+

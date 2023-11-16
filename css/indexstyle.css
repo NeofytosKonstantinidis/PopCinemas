@@ -1,0 +1,633 @@
+/* INDEX */
+.cardcontainer{
+	display:flex;
+	padding:5px;
+	margin-left:15%;
+	margin-right:15%;
+	padding-bottom: 25px;
+	justify-content: start;
+}
+.card {
+  position:relative;
+  width: 22%;
+  text-align: center;
+  display:block;
+  background-color:white;
+  color:#31313e;
+  margin:10px;
+  cursor:pointer;
+}
+.card{
+	transition: all .2s ease-in-out;
+}
+.divmovietitle{
+	display: flex;
+	align-items: center;
+	height: 100px;
+	justify-content: center;
+}
+.movieimage img {
+	height: 100%;
+}
+.card::after{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	opacity:0;
+	box-shadow: 0 1rem 1rem -.25em rgba(0,0,0,.3);
+	transition: box-shadow 1s ease;
+}
+.rate{
+	position: absolute;
+	top: 0;
+	left: 0;
+	margin: 5px;
+	font-size: 45px;
+	text-shadow: 1px 1px 2px black, 0 0 25px #ffbf007a, 0 0 5px #ff540073;
+}
+.rate-text{
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 14px;
+	margin: 19px;
+	color:black;
+}
+.card:hover::after{
+	opacity:1;
+}
+.card:hover
+{
+	transform: scale(1.05);
+}
+.movietitle{
+	font-size:20px;
+	padding:5px;
+}
+.sectitle{
+	width:100%;
+	color:#31313e;
+}
+.sectitle h2{
+	text-align:center;
+	padding: 10px;
+	border-bottom: #fff 2px solid;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+.section{
+	padding-top:25px;
+}
+.gapless{
+	padding-top:0;
+}
+.gap{
+	padding-top:50px;
+}
+.seemore{
+	display: block;
+	margin: auto;
+	border: 2px solid #31313e;
+	border-radius: 5px;
+	background: none;
+	padding: 14px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: all .5s ease-in-out;
+}
+.seemore:hover{
+	background-color:#31313e;
+	color:white;
+}
+.sections::-webkit-scrollbar {
+	display: none;
+}
+.sections{
+	position:relative;
+	overflow-y:auto;
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+	height:90%;
+	background: linear-gradient(#ffffff6e 33%, rgba(255, 255, 255, 0)), linear-gradient(rgba(255,255,255, 0), #ffffff6e 66%) 0 100%, radial-gradient(farthest-side at 50% 0, rgba(34,34,34, 0.5), rgba(0,0,0,0)), radial-gradient(farthest-side at 50% 100%, rgba(34,34,34, 0.5), rgba(0,0,0,0)) 0 100%;
+    background-repeat: repeat, repeat, repeat, repeat;
+    background-attachment: scroll, scroll, scroll, scroll;
+    background-size: auto, auto, auto, auto;
+	background-repeat: no-repeat;
+	background-attachment: local, local, scroll, scroll;
+	background-size: 100% 120px, 100% 120px, 100% 40px, 100% 40px;
+	overflow-x: hidden;
+	
+}
+.footer{
+	position:absolute;
+	background-color:#31313e;
+	color: #fff;
+	margin-top: 20px;
+	width:100%;
+	padding: 10px;
+	font-size: 16px;
+	font-style: italic;
+}
+.seat{
+	color:#848484;
+	cursor:pointer;
+	font-size: 40px;
+	
+}
+.corridor{
+	color: #fff0;
+}
+.corridorrun{
+	color: #fff0;
+	cursor: default;
+}
+.taken{
+	color:#8e0000;
+	cursor: no-drop;
+}
+.pointercursor{
+	cursor:pointer!important;
+}
+.nodropcursor{
+	cursor: no-drop;
+}
+.sel{
+	color:#ffb506;
+}
+.cancelled{
+	color:#d1d1d4;
+	cursor: no-drop;
+}
+.cancelled-edit{
+	color:#d1d1d4;
+	cursor: pointer;
+}
+.goodseat{
+	color:#4CAF50;
+}
+.previewseat{
+	cursor: default;
+	font-size: 26px;
+}
+.previewbigseat{
+	cursor: default;
+}
+.week{
+	width:100%;
+	overflow-x: auto;
+}
+.weekday{
+	display: inline-flex;
+}
+.day{
+	padding:12px 16px;
+	background-color:#ffd78c;
+	border: #00000082 1px solid;
+	width:170px;
+	font-size:22px;
+}
+.timeslist{
+	display: inline-flex;
+	overflow-x: auto;
+	width: 935px;
+	
+}
+.time{
+	position:relative;
+	padding:12px 10px;
+	padding-right:20px;
+	border: #00000082 1px solid;
+	background-color:#fff5f5;
+}
+#timer{
+	margin-left:10px;
+	padding: 12px;
+	width: 100px;
+	text-align: center;
+}
+.checkboxes{
+	display:flex;
+	font-size:20px;
+	width:100%;
+	overflow-x: auto;
+}
+.checkboxes input{
+	margin:10px;
+}
+.closeddiv{
+	height:0;
+}
+#datesdisplay{
+	display:flex;
+}
+.datecolumn {
+  float: left;
+  width: 14.28%;
+  height: 300px;
+  font-size:15px;
+  text-align:center;
+}
+.daterow:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.datetitles{
+	background-color: #ffffff7d;
+	border: 1px solid #0000005e;
+}
+.dateresult{
+	background-color: #ffffffd9;
+	border: 1px solid #0000005e;
+	height: 100px;
+	position: relative;
+}
+.datestable{
+	position:relative; 
+	width:100%;
+	transition:1s;
+}
+#loader
+{
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+.disabled
+{
+	background-color:#aeaeae;
+}
+.takendate
+{
+	background-color:#8a0000;
+	color:white;
+}
+.addbutt
+{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	color:black;
+	cursor:pointer;
+	font-size: 30px;	
+}
+.addbutt:hover
+{
+	color:green;
+}
+.added
+{
+	color:white;
+	background-color:green;
+}
+.added:hover
+{
+	color:red;
+}
+.minusbutt
+{
+	position: absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	color:black;
+	cursor:pointer;
+	background-color:white;
+	font-size:30px;
+	border-radius: 50%;
+	padding: 10px;
+}
+.minusbutt:hover
+{
+	color:red;
+}
+.minusbackground
+{
+	background-color:green;
+}
+.cinemasboxes
+{
+	width:100%;
+	margin: 10px;
+	min-height: 80px;
+}
+.cinemabox
+{
+	float:left;
+	position:relative;
+	padding: 10px;
+	padding-right: 30px;
+	border: 3px solid #31313e;
+	margin: 5px;
+}
+.roomtd
+{
+	text-align: center;
+}
+#avseats,.inlinediv
+{
+	display: inline;
+}
+.datastable
+{
+	margin: auto;
+}
+.redd a, .redd span, .redd{
+   background-color : #ce0000 !important;
+   background-image :none !important;
+   color: White !important;
+   font-weight:bold !important;
+}
+.greend a, .greend{
+  background-color : Green !important;
+   background-image :none !important;
+   color: White !important;
+   font-weight:bold !important;
+}
+.yellowd a, .yellowd{
+  background-color : #f4b700 !important;
+   background-image :none !important;
+   color: White !important;
+   font-weight:bold !important;
+}
+#roomdiv{
+	min-height:100px;
+	padding-top: 20px;
+	display: flex;
+}
+.searchButton{
+	font-size: initial;
+}
+#mobilemenubutton{
+	display:none;
+}
+#mobilemenu{
+	position:fixed;
+	height:100%;
+	width:0;
+	top:0;
+	right:0;
+	background-color:#111111a1;
+	transition:0.5s;
+	padding-top:60px;
+	z-index: 2000;
+	overflow-x: hidden;
+}
+#mobilemenu .closebtn {
+	position: absolute;
+	top: 20px;
+	right: 45px;
+	font-size: 60px;
+}
+#mobilemenu a {
+	padding: 8px;
+	text-decoration: none;
+	font-size: 36px;
+	color: #ffffff;
+	display: block;
+	transition: 0.3s;
+}
+.overlaymobile-content{
+	text-align: center;
+	color:#fff;
+}
+.overlaymobile-content a{
+	cursor:pointer;
+}
+.overlaymobile-content a:hover{
+	color:#ffffff82;
+}
+.bookingtickets{
+	width: 100%;
+	padding: 20px;
+	min-height: 100px;
+	text-align: center;
+}
+.bookingtickets input{
+	text-align:center;
+}
+.roomtabl{
+	overflow: auto;
+	width: 70%;
+	padding: 10px;
+	border: 1px solid black;
+	border-radius:50px;
+	float:left;
+}
+.seatpreviews{
+	width: 23%;
+	padding: 5px;
+	float:left;
+	font-size: 14px;
+	text-align: left;
+	margin-top: 25px;
+	line-height: 2rem;
+	margin-left: 25px;
+}
+.svgicon,.svgtext {
+	vertical-align: middle;
+	display: inline-block;
+	margin-right: 10px;
+}
+.svgicon{
+	margin-left: 30px;
+}
+@font-face {
+	font-family: 'seatfont';
+	src:  url('fonts/seatfont.eot?cuyn3o');
+	src:  url('fonts/seatfont.eot?cuyn3o#iefix') format('embedded-opentype'),
+	url('fonts/seatfont.ttf?cuyn3o') format('truetype'),
+	url('fonts/seatfont.woff?cuyn3o') format('woff'),
+	url('fonts/seatfont.svg?cuyn3o#seatfont') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'seatfont' !important;
+	speak: never;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.icon-Seat:before {
+	content: "\e900";
+}
+.ticketinp{
+	padding:0;
+	width: 70px;
+}
+.bookinputs{
+	padding: 6px 10px;
+	margin: 8px 5px;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	background-color: white;
+	width: 200px;
+	text-align:center;
+	font-size: 20px;
+}
+.prevticket{
+	border: 1px solid black;
+	border-radius: 20px;
+	margin:5px;
+	padding: 5px 5px 0;
+	text-align: right;
+}
+.smallinput{
+	width: 40px;
+	border-radius: 20px;
+	margin-left: 20px;
+	margin-right: 30px;
+}
+.medinput{
+	width: 100px;
+	border-radius: 20px;
+	margin-left: 20px;
+	margin-right: 20px;
+}
+#ticketpreviews{
+	overflow-y: auto;
+	text-align: center;
+	box-shadow: 5px 10px 18px #6a6666;
+	border-radius: 20px;
+	max-height: 260px;
+}
+#ticketpreviews2{
+	overflow-y: auto;
+	text-align: center;
+	box-shadow: 5px 10px 18px #6a6666;
+	border-radius: 20px;
+	max-height: 410px;
+}
+.titleticket{
+	border-bottom: 1px solid black;
+	text-align:center;
+}
+.roomtableedit{
+	overflow: auto;
+}
+#ProceedToCheckOut{
+	margin-top: 20px;
+}
+.mediuminput{
+	margin-right: 14px;
+	width: 65%;
+	margin-left: 0;
+}
+#resultcosts{
+	margin-top: 15px;
+}
+#projinfo{
+	margin-left:0;
+	text-align:right;
+}
+.ticketsresults{
+	font-size: 20px;
+	text-align:center;
+	background-color:#ffffffe3;
+	max-height:400px;
+	overflow-y: auto;
+	margin:10px;
+}
+.prevticketsimg{
+	height:100px;
+}
+.ticketsresults table tr:nth-child(even){
+	background-color: #ddddddc4;
+}
+.ticketsresults table{
+	border-collapse: collapse;
+}
+.ticketsresults table th{
+	padding:5px 0;
+}
+#userdatatable th{
+	text-align: right;
+	font-size: 16px;
+	width:50%;
+}
+#userdatatable td{
+	width:50%;
+	text-align: left;
+	font-size:16px;
+}
+.starsrater{
+	padding: 0 30%;
+}
+.prevsdi{
+	width:100%;
+}
+@media screen and (max-width: 760px){
+	.ticketsresults{
+		font-size: 14px;
+	}
+	.ticketsresults table{
+		border-collapse: separate;
+	}
+	.day,.week,.checkboxes{
+		font-size:16px;
+	}
+	.sections{
+		text-align: center;
+	}
+}
+@media screen and (max-width: 890px){
+	.bookingtickets{
+		padding:0;
+	}
+	#roomdiv{
+		display: block
+	}
+	.roomtabl{
+		width: 93%;
+		float: none;
+		border-radius: 10px;
+	}
+	.seatpreviews{
+		width:100%;
+		margin-left:0;
+		float:none;
+	}
+	#ticketpreviews{
+		max-height: 146px;
+		width: 100%;
+		display: inline-block;
+	}
+	.prevticket{
+		float:left;
+		width: 240px;
+	}
+	.prevsdi{
+		width: auto;
+		float: left;
+	}
+	#projinfo{
+		text-align:center;
+	}
+}
+@media screen and (max-width: 400px){
+	.seat{
+		font-size: 30px;
+	}
+	.prevticket{
+		width:90%;
+	}
+	.card{
+		margin:5px;
+	}
+}

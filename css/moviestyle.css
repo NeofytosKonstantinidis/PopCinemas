@@ -1,0 +1,310 @@
+/* * {
+  box-sizing: border-box;
+}*/
+
+.movie{
+    display:flex;
+}
+.moviedetails{
+    padding:10px;
+    width:40%;
+}
+.mtitle{
+	color: #464343;
+}
+h2{
+    text-align: center;
+    font-size: 40px;
+}
+.moviegenre{
+    margin: 10px;
+    text-decoration: none;
+    color: #b71010;
+	font-size: 16px;
+	font-weight: bold;
+	cursor:pointer;
+}
+.moviegenres{
+    display: table;
+    margin: 10px auto;
+}
+.moviegenre:hover{
+    color:#d11;
+}
+p{
+    text-align: center;
+    color: #464343;
+    font-size:25px; 
+}
+.moviedescription>p{
+    
+    text-align: justify;
+    text-align-last: center;
+}
+/* Position the image container (needed to position the left and right arrows) */
+.metas-container {
+  position: relative;
+  width:60%;
+  display:grid;
+  height: 40%;
+  margin-left: 25px;
+  background-color: #0000009e;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 40%;
+  width: auto;
+  padding: 16px;
+  margin-top: -50px;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.video-row{
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+	padding: 5px 5px 0px 5px;
+}
+.video-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Six columns side by side */
+.video-column {
+  width: 20%;
+  height: 75px;
+  margin-right:5px;
+  display: inline-block;
+}
+.metacolumn{
+	width: 20%;
+	margin-right:5px;
+	display: inline-block;
+	position: relative;
+}
+.inputs{
+	padding: 12px 20px;
+    margin: 8px 5px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+	background-color: white;
+}
+#descr{
+	margin:0;
+}
+
+.movieimages{
+	margin: 5px;
+	width: 100%;
+}
+.mpreview{
+	margin:5px;
+}
+
+.sidebutton{
+	border: 2px solid #31313e;
+	border-radius: 5px;
+	background: none;
+	padding: 10px 28px;
+	font-size: 16px;
+	cursor: pointer;
+	transition: all .5s ease-in-out;
+	margin: 8px 0px;
+}
+.genrebutton{
+	position:relative;
+	border: 2px solid #31313e;
+	border-radius: 5px;
+	background: none;
+	padding: 10px 28px;
+	font-size: 16px;
+	margin: 10px;
+	text-decoration: none;
+	color: #b71010;
+	font-weight: bold;
+	cursor: default;
+}
+.cancelbutton{
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 5px;
+	color:#31313e;
+	cursor:pointer;
+}
+.white{
+	color:white;
+}
+.red{
+	color:#b71010;
+}
+
+.small{
+	font-size: 20px;
+}
+
+.cancelbutton:hover{
+	color:black;
+}
+.white:hover{
+	color:white;
+	text-shadow: 1px 1px 2px black, 0 0 25px #0000007a, 0 0 5px #00000073;
+}
+.red:hover{
+	color:#ff1414;
+}
+.sidebutton:hover{
+	background-color:#31313e;
+	color:white;
+}
+.mySlides{
+    width:100%;
+    height:40%;
+    background-color:#000;
+    margin-bottom:10px;
+    
+}
+.moviemetas{
+    height:auto;
+    width:100%;
+    display: table;
+    margin: auto;
+}
+.trailer{
+    position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+}
+.video-demo{
+    height: 100%;
+    width: auto;
+    opacity:0.6;
+}
+.moviedescription{
+	padding: 0 20px;
+}
+.active,
+.video-demo:hover {
+  opacity: 1;
+}
+ .video-container {
+    position: relative;
+     width: 100%;
+     height: 0;
+     padding-bottom: 56.25%;
+ }
+ .desc{
+	 font-size:20px;
+ }
+.fa-star{
+	color:#464343;
+}
+.checked {
+  color: #ffb60a;
+}
+.starshovered{
+	color:#ae7203;
+}
+.starscontainer{
+	display:grid;
+	align-items: center;
+	padding: 0 70px;
+}
+.rating{
+	grid-row:1;
+	grid-column:1;
+}
+.star1{
+	grid-row:1;
+	grid-column:2;
+}
+.star2{
+	grid-row:1;
+	grid-column:3;
+}
+.star3{
+	grid-row:1;
+	grid-column:4;
+}
+.star4{
+	grid-row:1;
+	grid-column:5;
+}
+.star5{
+	grid-row:1;
+	grid-column:6;
+}
+.gridstarcontainer{
+	margin:auto;
+}
+.leftarr
+{
+    width: 20px;
+	left: 1%;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+.rightarr
+{
+	right: 1%;
+	top: 50%;
+	transform: translate(0,-50%);
+}
+@media only screen and (max-width: 600px){
+    h2{
+        font-size: 30px;
+        overflow-x: auto;
+    }
+}
+.dateresult div{
+    padding: 20px 10px 10px;
+}
+.cinemboxesd{
+    width:100%;
+    min-height: 60px;
+}

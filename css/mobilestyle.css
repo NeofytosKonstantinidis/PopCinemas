@@ -1,0 +1,116 @@
+.divmovietitle{
+    height:70px;
+}
+.movietitle {
+    font-size: 12px;
+}
+.cardcontainer{
+    margin-left: 0;
+    margin-right: 0;
+    padding-bottom: 10px;
+}
+.footer{
+    font-size:10px;
+}
+#menuitems,#searchbox,#topCurtain{
+    display:none;
+}
+#begin{
+    width:100%;
+    min-height: 100vh;
+    margin-top:0;
+}
+.sections{
+    min-height: 95vh;
+}
+#banner{
+    height: 50px;
+}
+#logodiv {
+    height: 50px;
+}
+.movie{
+    display: block;
+}
+.metas-container {
+    width: auto;
+    display: grid;
+    margin-left: 25px;
+    background-color: #0000009e;
+    margin-right: 25px;
+}
+.moviedetails {
+    width: 100%;
+}
+.moviegenres{
+    line-height: 50px;
+}
+#roomdiv{
+    padding-bottom: 15px;
+}
+.datetitles h4{
+    font-size:10px;
+}
+.dateresult{
+    font-size:10px;
+}
+.logcontainer {
+    padding: 16px 10px;
+}
+#form {
+    padding-left: 0;
+    padding-right: 0;
+    width: 80%;
+}
+.subnav{
+    float: right;
+}
+#mobilemenubutton{
+    display:block;
+}
+#mobilemenu .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+}
+#mobilemenu a {
+    font-size: 20px;
+}
+@media only screen and (max-width: 554px){
+    .datetitles h4{
+        font-size:6px;
+    }
+    .dateresult div{
+        padding: 16px 0 0;
+    }
+    .dateresult{
+        font-size: 8px;
+    }
+    .small{
+        font-size:14px;
+    }
+    .cancelbutton{
+        margin:0;
+    }
+    .rate{
+        font-size: 30px;
+    }
+    .rate-text{
+        font-size: 8px;
+        margin: 15px;
+    }
+    .starsrater{
+        padding: 0 10%;
+    }
+}
+h4{
+    width:100%;
+}
+.inputs{
+    padding: 6px 0;
+}
+.moviegenres{
+    width: 100%;
+    overflow-x: auto;
+    display: inline-block;
+}
